@@ -1,15 +1,15 @@
 {
   "name": "step-by-step",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Runs postman request step by step",
   "scripts": {
-    "start": "webpack && node dist/bundle.js",
+    "start": "webpack --node-env=development && node dist/bundle.js",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Mathis EON",
+  "email": "eon@abes.fr",
+  "license": "MIT",
   "devDependencies": {
     "ts-loader": "^8.0.17",
     "tslint": "^5.12.1",
