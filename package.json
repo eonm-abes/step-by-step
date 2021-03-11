@@ -1,7 +1,7 @@
 {
   "name": "step-by-step",
   "version": "1.0.0",
-  "description": "Runs postman request step by step",
+  "description": "Runs Postman's prerequest scripts step by step",
   "scripts": {
     "start": "webpack --node-env=development && node dist/bundle.js",
     "build": "webpack",
