@@ -28,23 +28,23 @@ eval(pm.globals.get("stepByStep"));
 
 new stepByStep.stepByStep([
   (data) => {
-    // this function is triggered during the first requeset
+    // this function is triggered during the first request
     console.log(`current iteration = ${data.count}`);
     
    // if a function returns an object, this object will be accessible from the following functions with data. 
     return {foo: "bar"};
   },
   (data) => {
-    // this function is triggered during the second requeset.
+    // this function is triggered during the second request.
     console.log(`current iteration = ${data.count}`);
     console.log(data);
   },
   (data) => {
-    // this function is triggered during the third requeset.
+    // this function is triggered during the third request.
     console.log(`current iteration = ${data.count}`);
   },
   (data) => {
-    // this function is triggered during the fourth requeset.
+    // this function is triggered during the fourth request.
     console.log(`current iteration = ${data.count}`);
   },
 ]).run();
