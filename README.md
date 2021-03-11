@@ -26,7 +26,7 @@ _Runs Postman's prerequest scripts step by step_
 ```js
 eval(pm.globals.get("stepByStep"));
 
-new stepByStep([
+new stepByStep.stepByStep([
   (data) => {
     // this function is triggered during the first requeset
     console.log(`current iteration = ${data.count}`);
