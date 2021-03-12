@@ -2,7 +2,7 @@
 
 # Step by Step
 
-_Runs Postman's prerequest scripts step by step_
+_Runs Postman's prerequest scripts and tests step by step_
 
 [![build](https://github.com/eonm-abes/step-by-step/actions/workflows/build.yml/badge.svg)](https://github.com/eonm-abes/step-by-step/actions/workflows/build.yml)
 [![Latest Build](https://img.shields.io/badge/%F0%9F%93%A6%20lastest%20build-tefgen.js-yellow)](https://github.com/eonm-abes/step-by-step/releases/latest/download/step-by-step.js)
