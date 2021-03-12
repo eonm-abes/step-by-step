@@ -14,7 +14,7 @@ _Runs Postman's prerequest scripts and tests step by step_
 
 # Installation
 
-You have to copy the content of the [stepByStep script](https://github.com/eonm-abes/step-by-step/releases/latest/download/step-by-step.js) inside your PM global variable (`Environments > Globals`) :
+You have to copy the content of the [step-by-step.js script](https://github.com/eonm-abes/step-by-step/releases/latest/download/step-by-step.js) inside your PM global variable (`Environments > Globals`) :
 
 | VARIABLE      | INITIAL VALUE                  | CURRENT VALUE                  |
 |---------------|--------------------------------|--------------------------------|
