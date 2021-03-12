@@ -16,7 +16,12 @@ export class stepByStep {
   private cache: cachedData;
 
   constructor(array: Array<(input: cachedData) => any>) {
-    this.steps = array || [];
+	if (array instanceof Array && array.every((elem) => elem instanceof Function))) {
+		this.steps = array;	
+	} else {
+		throw new Error("Invalid stepByStep input. stepByStep class takes an array of functions as input.");
+	}
+    
     // @ts-ignore
 	this.cache_id = `${pm.info.requestId}-${pm.info.eventName}`;
 
