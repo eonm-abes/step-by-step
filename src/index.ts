@@ -58,10 +58,8 @@ export class stepByStep {
   }
 
   private update_cache() {
-    console.log(`updating cache ${this.cache_id}`);
     // @ts-ignore
     pm.collectionVariables.set(this.cache_id, JSON.stringify(this.cache));
-    console.log(`cache after update = ${this.get_cache()}`);
     this.refresh_cache();
   }
 
