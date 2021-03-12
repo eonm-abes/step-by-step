@@ -22,7 +22,7 @@ You have to copy the content of the [step-by-step.js script](https://github.com/
 
 # Usage
 
-Inside your prerequest script and or your test script :
+Inside your prerequest script and/or your tests :
 
 ```js
 eval(pm.globals.get("stepByStep"));
