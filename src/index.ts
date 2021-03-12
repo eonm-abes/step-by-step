@@ -1,5 +1,8 @@
-//#! ENV === 'development'
-import { pm } from "./mocking";
+// #!ENV
+import { Pm } from './pm'
+
+// #!ENV
+let pm = new Pm();
 
 interface cachedData {
   count: number;
@@ -19,6 +22,7 @@ export class stepByStep {
 
     if (!this.get_cache().count) {
       this.cache = { count: 0, results: [] };
+      this.update_cache();
     } else {
       this.cache = this.get_cache();
     }
@@ -27,7 +31,7 @@ export class stepByStep {
   private reset_cache() {
     // @ts-ignore
     pm.collectionVariables.unset(this.cache_id);
-    
+
     // @ts-ignore
     pm.collectionVariables.set(
       this.cache_id,
@@ -54,16 +58,14 @@ export class stepByStep {
   }
 
   private update_cache() {
+    console.log(`updating cache ${this.cache_id}`);
     // @ts-ignore
     pm.collectionVariables.set(this.cache_id, JSON.stringify(this.cache));
+    console.log(`cache after update = ${this.get_cache()}`);
     this.refresh_cache();
   }
 
   run() {
-    if (!this.cache.count) {
-      this.reset_cache();
-    }
-
     let result = null;
 
     try {
@@ -74,61 +76,15 @@ export class stepByStep {
         result = this.steps[0]({ ...this.cache }) || null;
       }
 
-      this.cache.count = this.cache.count + 1;
-      
+      this.cache.count += +1;
+
       this.cache["results"]
         ? this.cache["results"].push(result)
         : (this.cache["results"] = [result]);
-      
-        this.update_cache();
     } catch {
-        this.reset_cache()
-        throw new Error("Something went wrong, you should check your code");
+      this.reset_cache();
+      throw new Error("Something went wrong, you should check your code");
     }
+    this.update_cache();
   }
 }
-
-//#!if ENV === 'development'
-
-//#!if pm
-// @ts-ignore
-eval(pm.globals.get("stepByStep"));
-//#!endif
-
-let x = new stepByStep([
-  (data) => {
-    console.log(`current iteration = ${data.count}`);
-    console.log(data);
-    // "a" sera automatiquement stocké dans un array pour pouvoir être réutilisé au cour des itérations suivantes
-    return "a";
-  },
-  (data) => {
-    console.log(`current iteration = ${data.count}`);
-    console.log(data);
-    // On accède aux résultats de la fonction précédente
-    // console.log(`previous function result = ${data.results?.pop()()}`);
-    // return {"b": 0}
-  },
-  (data) => {
-    console.log(`current iteration = ${data.count}`);
-    // On accède aux résultats de la fonction précédente
-    // console.log(`previous function result = ${data.results?.pop()}`);
-    console.log(data);
-    return { b: 0 };
-  },
-  (data) => {
-    console.log(`current iteration = ${data.count}`);
-    // On accède aux résultats de la fonction précédente
-    // console.log(`previous function result = ${data.results?.pop()}`);
-    console.log(data);
-    return { b: 0 };
-  },
-]);
-
-x.run();
-x.run();
-x.run();
-x.run();
-x.run();
-x.run();
-//#! endif

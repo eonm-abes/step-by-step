@@ -1,21 +1,22 @@
 const path = require("path");
 
+console.log(process.env.NODE_ENV)
+
 module.exports = {
-  mode: process.env.NODE_ENV || "production",
-  entry: "./src/index.ts",
+  mode: "production",
+  entry: {"bundle":"./src/index.ts", "mocking":"./src/mocking.ts"},
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: [
           {
-            loader: "webpack-preprocessor-loader",
+            loader: 'webpack-preprocessor-loader',
             options: {
-              params: {
-				ENV: process.env.NODE_ENV,
-                pm: false,
+              directives: {
+                ENV: process.env.NODE_ENV,
               },
-            },
+            }
           },
           {
             loader: "ts-loader",
@@ -29,7 +30,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     library: "stepByStep",
   },

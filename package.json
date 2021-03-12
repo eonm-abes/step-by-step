@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Runs Postman's prerequest scripts step by step",
   "scripts": {
-    "start": "webpack --node-env=development && node dist/bundle.js",
+    "start": "webpack --node-env=mocking && node ./dist/mocking.js",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
