@@ -5,7 +5,7 @@
 _Runs Postman's prerequest scripts and tests step by step_
 
 [![build](https://github.com/eonm-abes/step-by-step/actions/workflows/build.yml/badge.svg)](https://github.com/eonm-abes/step-by-step/actions/workflows/build.yml)
-[![Latest Build](https://img.shields.io/badge/%F0%9F%93%A6%20lastest%20build%2Dstep%2Dby%2Dstep.js-yellow)](https://github.com/eonm-abes/step-by-step/releases/latest/download/step-by-step.js)
+[![Latest Build](https://img.shields.io/badge/%F0%9F%93%A6%20lastest%20build-step%20by%20step.js-yellow)](https://github.com/eonm-abes/step-by-step/releases/latest/download/step-by-step.js)
 [![GitHub release](https://img.shields.io/github/release/eonm-abes/step-by-step.svg)](https://github.com/eonm-abes/step-by-step/releases/latest)
 [![Contribution Welcome](https://img.shields.io/badge/contribution-welcome-green.svg)](https://github.com/eonm-abes/step-by-step/pulls)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
