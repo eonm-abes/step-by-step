@@ -27,10 +27,17 @@ export class collectionVariables {
   }
 }
 
+enum EventName {
+  Prerequest = "prerequest",
+  Test = "test"
+}
+
 export class PmInfo {
   requestId: string;
+  eventName: EventName;
 
   constructor() {
     this.requestId = "123e4567-e89b-12d3-a456-426614174000";
+    this.eventName = EventName.Prerequest
   }
 }

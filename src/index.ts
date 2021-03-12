@@ -18,7 +18,7 @@ export class stepByStep {
   constructor(array: Array<(input: cachedData) => any>) {
     this.steps = array || [];
     // @ts-ignore
-    this.cache_id = pm.info.requestId;
+	this.cache_id = `${pm.info.requestId}-${pm.info.eventName}`;
 
     if (!this.get_cache().count) {
       this.cache = { count: 0, results: [] };
