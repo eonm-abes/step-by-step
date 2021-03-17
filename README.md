@@ -1,6 +1,6 @@
 <div align="center">
 
-# Step by Step
+# Step by Step 📯
 
 _Runs Postman's prerequest scripts and tests step by step_
 
