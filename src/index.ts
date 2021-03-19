@@ -16,7 +16,7 @@ export class stepByStep {
   private cache: cachedData;
 
   constructor(array: Array<(input: cachedData) => any>) {
-	if (array instanceof Array && array.every((elem) => elem instanceof Function))) {
+	if (array instanceof Array && array.every((elem) => elem instanceof Function)) {
 		this.steps = array;	
 	} else {
 		throw new Error("Invalid stepByStep input. stepByStep class takes an array of functions as input.");
@@ -68,7 +68,15 @@ export class stepByStep {
     this.refresh_cache();
   }
 
-  run() {
+  data(): cachedData {
+    return this.get_cache().results.pop();
+  }
+
+  last_data(): cachedData {
+    return this.get_cache().results.filter((value: any) => (value != null)).pop();
+  }
+
+  run(): stepByStep {
     let result = null;
 
     try {
@@ -89,5 +97,7 @@ export class stepByStep {
       throw new Error("Something went wrong, you should check your code");
     }
     this.update_cache();
+
+    return this;
   }
 }
